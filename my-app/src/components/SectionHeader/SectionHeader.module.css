@@ -1,0 +1,42 @@
+.head {
+  padding: 0 48px 36px;
+  max-width: 1280px;
+  margin: 0 auto;
+  animation: fadeSlideDown 0.7s ease both;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 4px;
+}
+
+.title {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--red);
+  font-family: 'Playfair Display', serif;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(18px, 2.5vw, 28px);
+  color: var(--text-mid);
+  margin-top: 2px;
+}
+
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (max-width: 768px) {
+  .head { padding: 0 20px 24px; }
+}

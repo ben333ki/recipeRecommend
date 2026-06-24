@@ -1,0 +1,94 @@
+.outer {
+  position: relative;
+  padding-bottom: 24px;
+}
+
+/* ── Track ── */
+.trackWrap {
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  padding: 20px 48px 28px;
+  touch-action: pan-y;
+}
+
+.trackWrap:active { cursor: grabbing; }
+
+.track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* ── Arrow buttons ── */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-60%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--white);
+  box-shadow: 0 4px 16px rgba(44, 24, 16, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  color: var(--text);
+  transition: background 0.28s ease, color 0.28s ease, box-shadow 0.28s ease, transform 0.28s ease, opacity 0.2s;
+}
+
+.arrow:hover:not(:disabled) {
+  background: var(--red);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(200, 52, 58, 0.35);
+  transform: translateY(-60%) scale(1.1);
+}
+
+.arrow:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.prev { left: 4px; }
+.next { right: 4px; }
+
+/* ── Dots ── */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cream-dk);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.28s ease, width 0.28s ease, border-radius 0.28s ease;
+}
+
+.dotActive {
+  background: var(--red);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .trackWrap { padding: 16px 12px 20px; }
+  .arrow { width: 36px; height: 36px; }
+  .prev { left: 0; }
+  .next { right: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track { transition: none; }
+}
